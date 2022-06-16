@@ -82,7 +82,12 @@
     .menu1 ul{
         list-style-type: none;
         padding: 10px 20px;
-        display: none;
+        
+    }
+
+    .visible{
+        display: block;
+        transition: 0.5s;
     }
 
     .menu1 ul li{
@@ -100,22 +105,30 @@
     .menu1 ul li a:hover{
         font-weight: 500;
     }
+
+    .invisible{
+        display: none;
+        transition: 0.5s;
     }
+}
 </style>
 <body>
     <div class="menu1">
-        <div class="hamburg">
+        <div class="hamburg" id="hamburg">
             <div class="barra1"></div>
             <div class="barra2"></div>
             <div class="barra3"></div>
         </div>
         <div class="content">
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Sobre</a></li>
-                <li><a href="">Projetos</a></li>
-                <li><a href="">Contato</a></li>
-            </ul>
+            
+                <ul id="interno" class="visible invisible">
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Sobre</a></li>
+                    <li><a href="">Projetos</a></li>
+                    <li><a href="">Contato</a></li>
+                </ul>
+            
+            
         </div>
     </div>
     <div class="menu2">
@@ -129,4 +142,11 @@
         </div>
     </div>
 </body>
+<script>
+    const interno = document.querySelector('#interno');
+    hamburg.addEventListener('click', ()=>{
+        interno.classList.toggle("visible");
+        interno.classList.toggle("invisible");
+    })
+</script>
 </html>
